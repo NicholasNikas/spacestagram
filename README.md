@@ -1,3 +1,9 @@
+# Shopify Frontend Intern Coding Challenge by Nicholas Nikas
+
+# Spacestagram: NASA Image sharing application
+
+Link to deployed version: https://nicholasnikas.github.io/spacestagram/#/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
