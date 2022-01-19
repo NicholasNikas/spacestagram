@@ -1,7 +1,11 @@
-import React from 'react'
-import { Card, Button } from 'react-bootstrap'
+import React, { useState } from 'react'
+import { Card, Button, Image } from 'react-bootstrap'
 
 const PhotoCard = ({ photo }) => {
+  const [liked, setLiked] = useState(false)
+  const handleLike = () => {
+    setLiked(!liked)
+  }
   return (
     <Card id='card' className='m-5 p-5 border border-dark rounded'>
       {photo.media_type === 'image' ? (
@@ -21,7 +25,15 @@ const PhotoCard = ({ photo }) => {
         <Card.Title>{photo.title}</Card.Title>
         <Card.Text>{photo.date}</Card.Text>
         <Card.Text>{photo.explanation}</Card.Text>
-        <Button variant='primary'>Like</Button>
+        {!liked ? (
+          <Button variant='primary' onClick={() => handleLike()}>
+            Like
+          </Button>
+        ) : (
+          <Button variant='danger' onClick={() => handleLike()}>
+            Unlike
+          </Button>
+        )}
       </Card.Body>
     </Card>
   )
