@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image } from 'react-bootstrap'
+import { Image, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import NasaLogo from './images/nasa-logo-web-rgb.png'
 import ShopifyLogo from './images/shopify-logo.png'
@@ -16,6 +16,7 @@ const HomePage = () => {
         Shopify Frontend Intern Coding Challenge by Nicholas Nikas
       </p>
       <Image className='shopify-logo' fluid src={ShopifyLogo}></Image>
+      <Button className='m-5' variant='primary' href='https://github.com/NicholasNikas/spacestagram'>Click here to view github repository</Button>
     </div>
   )
 }
