@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
-import { Card, Button, Image } from 'react-bootstrap'
+import { Card, Row, Col } from 'react-bootstrap'
+import Heart from 'react-animated-heart'
 
 const PhotoCard = ({ photo }) => {
-  const [liked, setLiked] = useState(false)
-  const handleLike = () => {
-    setLiked(!liked)
-  }
+  const [isClick, setClick] = useState(false)
+
   return (
     <Card id='card' className='m-5 p-5 border border-dark rounded'>
       {photo.media_type === 'image' ? (
@@ -25,15 +24,12 @@ const PhotoCard = ({ photo }) => {
         <Card.Title>{photo.title}</Card.Title>
         <Card.Text>{photo.date}</Card.Text>
         <Card.Text>{photo.explanation}</Card.Text>
-        {!liked ? (
-          <Button variant='primary' onClick={() => handleLike()}>
-            Like
-          </Button>
-        ) : (
-          <Button variant='danger' onClick={() => handleLike()}>
-            Unlike
-          </Button>
-        )}
+        <Row className='d-flex align-items-center p-0'>
+          <Col>
+            <p id='like-button'>Like</p>
+            <Heart isClick={isClick} onClick={() => setClick(!isClick)} />
+          </Col>
+        </Row>
       </Card.Body>
     </Card>
   )
