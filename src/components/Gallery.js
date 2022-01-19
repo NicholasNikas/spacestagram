@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
+import { Row, Col } from 'react-bootstrap'
 import Loader from './Loader'
 import Header from './Header'
-import Photo from './Photo'
+import PhotoCard from './PhotoCard'
 import axios from 'axios'
 
 const nasaApiKey = process.env.REACT_APP_NASA_API_KEY
@@ -11,7 +12,7 @@ const Gallery = () => {
 
   const fetchNasaApodPhotos = async () => {
     const { data } = await axios.get(
-      `https://api.nasa.gov/planetary/apod?api_key=${nasaApiKey}&count=10`
+      `https://api.nasa.gov/planetary/apod?api_key=${nasaApiKey}&count=25`
     )
     setGalleryData(data)
   }
@@ -26,11 +27,13 @@ const Gallery = () => {
       {!galleryData ? (
         <Loader />
       ) : (
-        <div>
+        <Row xs={1} sm={1} md={2} lg={2} xxl={3}>
           {galleryData.map((photo) => (
-            <Photo photo={photo} key={photo.url} />
+            <Col className='col'>
+              <PhotoCard className='photo' photo={photo} key={photo.url} />
+            </Col>
           ))}
-        </div>
+        </Row>
       )}
     </div>
   )

@@ -14,7 +14,9 @@ const Loader = () => {
           display: 'block',
         }}
       ></Spinner>
-      <span className='pt-10'>Loading...</span>
+      <span className='d-flex align-items-center justify-content-center'>
+        Loading...
+      </span>
     </>
   )
 }
