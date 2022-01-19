@@ -6,14 +6,12 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
   return (
-    <div>
       <Router>
         <Routes>
           <Route element={<HomePage />} path='/' exact />
           <Route element={<Gallery />} path='/gallery' />
         </Routes>
       </Router>
-    </div>
   )
 }
 
